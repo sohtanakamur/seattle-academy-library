@@ -45,7 +45,6 @@ public class BookUtil {
 		}else {
         errorList.add(PUBLISHDATE_ERROR);
 		}
-
 		return errorList;
 	}
 
@@ -107,7 +106,6 @@ public class BookUtil {
             return false;
          } else {
             return true;
-         }
-	    
+         }	    
 	}
 }
