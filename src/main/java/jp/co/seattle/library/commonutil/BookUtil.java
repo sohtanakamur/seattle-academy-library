@@ -89,7 +89,7 @@ public class BookUtil {
 		     return false;
 	       }
 	    }else {
-           return false;
+           return true;
 	    }
 	}
 
