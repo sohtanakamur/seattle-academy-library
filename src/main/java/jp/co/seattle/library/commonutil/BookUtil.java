@@ -36,11 +36,13 @@ public class BookUtil {
         
         // ISBNのバリデーションチェック
 		if(isValidIsbn(bookInfo.getIsbn())) {
-        errorList.add(ISBN_ERROR);
+		}else {
+			errorList.add(ISBN_ERROR);
 		}
 
         // 出版日の形式チェック
-		if(!(checkDate(bookInfo.getPublishDate()))) {
+		if(checkDate(bookInfo.getPublishDate())) {
+		}else {
         errorList.add(PUBLISHDATE_ERROR);
 		}
 
@@ -58,8 +60,15 @@ public class BookUtil {
 			DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
 			formatter.setLenient(false); // ←これで厳密にチェックしてくれるようになる
 			//TODO　取得した日付の形式が正しければtrue（タスク４）
-			formatter.parse(publishDate);
-			return true;
+			if(publishDate.length() > 0) {
+				if(publishDate.length() == 8) {
+			      return true;
+			    }else {
+				  return false;
+			    }
+			}else {
+				return true;
+			}
 		} catch (Exception p) {
 			p.printStackTrace();
 			return false;
@@ -93,11 +102,11 @@ public class BookUtil {
 	 */
 	private static boolean isEmptyBookInfo(BookDetailsInfo bookInfo) {
 		//TODO　タイトル、著者、出版社、出版日のどれか一つでもなかったらtrue（タスク４）
-		if (StringUtils.isEmpty(bookInfo.getTitle()) || StringUtils.isEmpty(bookInfo.getAuthor()) ||
-				StringUtils.isEmpty(bookInfo.getPublisher()) || StringUtils.isEmpty(bookInfo.getPublishDate())) {
-            return true;
-         } else {
+		if (!(StringUtils.isEmpty(bookInfo.getTitle())) && !(StringUtils.isEmpty(bookInfo.getAuthor())) &&
+				!(StringUtils.isEmpty(bookInfo.getPublisher())) && !(StringUtils.isEmpty(bookInfo.getPublishDate()))) {
             return false;
+         } else {
+            return true;
          }
 	    
 	}
