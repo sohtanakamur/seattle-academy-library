@@ -39,10 +39,7 @@ public class AccountController {
 	 * @param model
 	 * @return ホーム画面に遷移
 	 */
-
-	
-
-	@Transactional
+    @Transactional
 	@RequestMapping(value = "/createAccount", method = RequestMethod.POST)
 	public String createAccount(Locale locale, @RequestParam("email") String email,
 			@RequestParam("password") String password, @RequestParam("passwordForCheck") String passwordForCheck,
@@ -51,7 +48,7 @@ public class AccountController {
 		logger.info("Welcome createAccount! The client locale is {}.", locale);
 
 		// バリデーションチェック、パスワード一致チェック（タスク１）
-		if (password.length() >= 8 && password.matches("^[0-9a-zA-Z]+$")) {
+		if (password.length() >= 8 && password.matches("^[0-9a-zA-Z]+$")){
 			if (password.equals(passwordForCheck)) {
 				// パラメータで受け取った書籍情報をDtoに格納する。
 				UserInfo userInfo = new UserInfo();
@@ -67,13 +64,6 @@ public class AccountController {
 			model.addAttribute("errorMessage", "パスワードは8文字以上かつ半角英数字に設定してください。");
 			return "createAccount";
 		}
-
-		// パラメータで受け取ったアカウント情報をDtoに格納する。
-		//UserInfo userInfo = new UserInfo();
-		//userInfo.setEmail(email);
-		//userInfo.setPassword(password);
-		//usersService.registUser(userInfo);
-		//return "redirect:/login";
 	}
 
 }
