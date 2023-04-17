@@ -79,7 +79,7 @@
                         <c:if test="${!empty bookInfo}">
                             <input type="text" name="publishDate" value="${bookInfo.publishDate}">
                         </c:if>
-                        <c:if test="${empty bookInfo}">
+                        <c:if test="${empty bookInfo}">     
                             <input type="text" name="publishDate">
                         </c:if>
                     </div>
