@@ -30,7 +30,7 @@ public class BooksService {
 	 * @return 書籍リスト
 	 */
 	public List<BookInfo> getBookList() {
-        // TODO 書籍名の昇順で書籍情報を取得するようにSQLを修正（タスク３）
+		// TODO 書籍名の昇順で書籍情報を取得するようにSQLを修正（タスク３）
 		List<BookInfo> getedBookList = jdbcTemplate.query(
 				"SELECT * FROM books ORDER BY title ASC;",
 				new BookInfoRowMapper());
@@ -48,7 +48,7 @@ public class BooksService {
 		String sql = "SELECT id, title, author, publisher, publish_date, isbn, description, thumbnail_url, thumbnail_name FROM books WHERE books.id = ? ORDER BY title ASC;";
 
 		BookDetailsInfo bookDetailsInfo = jdbcTemplate.queryForObject(sql, new BookDetailsInfoRowMapper(), bookId);
-		
+
 		return bookDetailsInfo;
 	}
 
