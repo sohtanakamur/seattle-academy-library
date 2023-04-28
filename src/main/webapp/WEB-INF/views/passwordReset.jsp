@@ -3,10 +3,10 @@
 <%@ page session="false"%>
 <html>
 <head>
-<meta name="description" content="社内の書籍検索や貸出を行うことができます。" />
+<meta name="description" content="パスワードリセットを行うことができます。" />
 <meta name="robots" content="noindex,nofollow" />
 <meta http-equiv="content-type" content="text/html" charset="utf-8" />
-<title>ログイン｜シアトルライブラリ｜シアトルコンサルティング株式会社</title>
+<title>パスワードリセット｜シアトルライブラリ｜シアトルコンサルティング株式会社</title>
 <link href="<c:url value="/resources/css/reset.css" />" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
 <link href="<c:url value="/resources/css/default.css" />" rel="stylesheet" type="text/css">
@@ -20,8 +20,8 @@
         </div>
         <div class="authorization">
             <div class="authorization_form">
-                <form method="post" action="login">
-                    <div class="title">ログイン</div>
+                <form method="post" action="resetPassword">
+                    <div class="title">パスワードリセット</div>
                     <label class="label">メールアドレス</label> <input type="text" class="input" name="email" id="email" autocomplete="off" required /> <label class="label">パスワード</label> <input type="password" class="input" id="password" name="password" required />
                     <c:if test="${!empty errorMessage}">
                         <div class="error">${errorMessage}</div>
@@ -30,10 +30,7 @@
                 </form>
             </div>
             <div class="authorization_navi">
-                <label class="authorization_text">まだアカウントをお持ちでないですか？</label> <a class="authorization_link marker" href="<%=request.getContextPath()%>/newAccount">アカウント作成</a>
-            </div>
-            <div class="authorization_navi">
-            <a class="authorization_link marker" href="<%=request.getContextPath()%>/newAccount">パスワードリセット</a>
+                <a class="authorization_link marker" href="<%=request.getContextPath()%>/newAccount">パスワードリセット</a>
             </div>
         </div>
         <footer>

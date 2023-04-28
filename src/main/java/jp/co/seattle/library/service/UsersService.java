@@ -52,4 +52,18 @@ public class UsersService {
 		}
 	}
 
+	/**
+	 * パスワードを更新する
+	 * 
+	 * @param email    メールアドレス
+	 * @param password 新しいパスワード
+	 * @return 更新されたユーザー情報
+	 */
+	public UserInfo updateUserPassword(String email, String password) {
+		String sql = "UPDATE  SET password = ? WHERE email = ?";
+		jdbcTemplate.update(sql, password, email);
+
+		return selectUserInfo(email, password);
+	}
+
 }
